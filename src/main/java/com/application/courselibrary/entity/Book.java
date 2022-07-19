@@ -34,6 +34,12 @@ public class Book {
             inverseJoinColumns = {@JoinColumn(name = "author_id")})
     private Set<Author> authors = new HashSet<Author>();
 
+    public Book(String isbn, String name, String description) {
+        this.isbn = isbn;
+        this.name = name;
+        this.description = description;
+    }
+
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(name = "books_categories",
             joinColumns = {@JoinColumn(name = "book_id")},
